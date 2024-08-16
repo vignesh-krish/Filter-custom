@@ -5,6 +5,7 @@ import "./style.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import PersonFilter from "./personFilterVue.js";
 import YearFilter from "./yearFilterVue.js";
+import yearRangeFilterVue from "./yearRangeFilterVue.js";
 
 const VueExample = {
   template: `
@@ -22,11 +23,12 @@ const VueExample = {
     "ag-grid-vue": AgGridVue,
     PersonFilter,
     YearFilter,
+    yearRangeFilterVue
   },
   setup(props) {
     const columnDefs = ref([
       { field: "athlete", minWidth: 150, filter: "PersonFilter" },
-      { field: "year", minWidth: 130, filter: "YearFilter" },
+      { field: "year", minWidth: 130, filter: "yearRangeFilterVue" },
       { field: "country", minWidth: 150 },
       { field: "sport" },
       { field: "gold" },
@@ -52,7 +54,7 @@ const VueExample = {
 
       fetch("https://www.ag-grid.com/example-assets/olympic-winners.json")
         .then((resp) => resp.json())
-        .then((data) => updateData(data));
+        .then((data) => {data.length= 20;updateData(data)});
     };
 
     return {
