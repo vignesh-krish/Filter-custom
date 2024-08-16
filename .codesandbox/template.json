@@ -1,0 +1,10 @@
+{
+  "title": "Filter Component",
+  "runtime": "static",
+  "tags": [
+    "ag-grid",
+    "ag-charts",
+    "example"
+  ],
+  "published": false
+}
